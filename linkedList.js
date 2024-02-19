@@ -62,7 +62,12 @@ getFirst() {
 
 
 // creation of the linkedList
-let list = new LinkedList(node1, node2, node3)
+let list = new LinkedList(node1)
 console.log(list.head.data) // return 2
+
+console.log(size())
+console.log(geLast())
+console.log(getFirst())
+
 
 
