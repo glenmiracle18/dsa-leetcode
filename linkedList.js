@@ -86,5 +86,3 @@ class LinkedList {
   console.log(list.getLast());
   console.log(list.getFirst());
 
-
-
