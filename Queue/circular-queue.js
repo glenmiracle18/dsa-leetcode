@@ -7,6 +7,7 @@ class CircularQueue {
     this.items = new Array(capacity);
     this.rear = -1;
     this.front = -1;
+    this.currentLength = 0;
   }
 
   isFull() {
@@ -20,36 +21,33 @@ class CircularQueue {
   enqueue(element) {
     if (!this.isFull()) {
       //checks if the queue is empty
-      this.rear = (this.rear + 1) % this.capacity; // brings the rear pointer in place wrt to the capacity
+      this.rear = (this.rear + 1) % this.capacity;
       this.items[this.rear] = element;
-      this.currentLength += 1; // increment the queue length
+      this.currentLength + 1;
       if (this.front === -1) {
-        this.front = this.rear; // also bringing the front in place of the rear
+        this.front = this.rear;
       }
     }
   }
 
   dequeue() {
     if (this.isEmpty()) {
-      // verifies is the array is empty and returns null
+      this.rear = -1;
+      this.front = -1;
       return null;
     }
+
+    // item to be dequeued
     const item = this.items[this.front];
-    delete this.items[this.front];
+    delete this.items[item];
     this.front = (this.front + 1) % this.capacity;
     this.currentLength -= 1;
-    if (this.isEmpty()) {
-      this.front = -1;
-      this.rear = -1;
-    }
-    return item;
   }
 
   peek() {
-    if (!this.isEmpty()) {
+    if (this.isEmpty()) {
       return this.items[this.front];
     }
-    return null;
   }
 
   print() {
