@@ -26,7 +26,7 @@ class LinkedList {
   }
 }
 
-// call
+// function call
 const list = new LinkedList();
 console.log("List is empty", list.isEmpty());
 console.log("List Size: ", list.getSize());
