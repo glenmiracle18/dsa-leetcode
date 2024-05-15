@@ -3,11 +3,10 @@
 
 class CircularQueue {
   constructor(capacity) {
-    this.capacity = capacity; /// how much the queue can carry
-    this.items = new Array(capacity); // new array from the capacity, since it has a fixed lenght
-    this.currentLength = 0;
-    this.rear = -1; // not pointing to any position at initialization
-    this.front = -1; // not connected toany postition at initization
+    this.capacity = capacity;
+    this.items = new Array(capacity);
+    this.rear = -1;
+    this.front = -1;
   }
 
   isFull() {
@@ -21,11 +20,11 @@ class CircularQueue {
   enqueue(element) {
     if (!this.isFull()) {
       //checks if the queue is empty
-      this.rear = (this.rear + 1) % this.capacity; // brings the rear pointer in place
+      this.rear = (this.rear + 1) % this.capacity; // brings the rear pointer in place wrt to the capacity
       this.items[this.rear] = element;
       this.currentLength += 1; // increment the queue length
       if (this.front === -1) {
-        this.front = this.rear; // also bringing the front in place
+        this.front = this.rear; // also bringing the front in place of the rear
       }
     }
   }
