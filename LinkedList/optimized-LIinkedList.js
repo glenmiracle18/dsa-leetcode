@@ -46,11 +46,12 @@ class LinkedList {
       this.size--; // reduce the size
       return;
     }
-
+    t;
     let prev = null;
     let curr = this.head;
 
     while (curr !== null && curr.value !== value) {
+      //as long as the curr is not the head
       prev = curr;
       curr = curr.next;
     }
