@@ -7,21 +7,22 @@ class Queue {
     this.front = 0;
   }
 
-  // adding element to the queue
+  isEmpty() {
+    return this.rear - this.front === 0;
+  }
+
   enqueue(element) {
     this.items[this.rear] = element;
     this.rear++;
   }
 
   dequeue() {
-    const item = this.items[this.front];
-    delete this.items[this.front];
-    this.front++;
-    return item;
-  }
-
-  isEmpty() {
-    return this.rear - this.front === 0;
+    if (!this.isEmpty()) {
+      const item = this.items[this.front];
+      delete this.items[this.front];
+      this.front++;
+      return item;
+    }
   }
 
   peek() {
@@ -31,22 +32,19 @@ class Queue {
   size() {
     return this.rear - this.front;
   }
+
   print() {
     console.log(this.items);
   }
 }
 
-// function call
+// call
 
 const queue = new Queue();
 
-queue.enqueue(10);
 queue.enqueue(15);
-queue.enqueue(23);
-queue.enqueue(44);
-
-console.log(queue.isEmpty());
+queue.enqueue(16);
+queue.enqueue(17);
+queue.enqueue(18);
 queue.print();
-
-console.log(queue.peek());
-console.log(queue.size());
+queue.isEmpty();
