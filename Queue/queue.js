@@ -15,18 +15,17 @@ class Queue {
   }
 
   dequeue() {
-    return this.items.shift();
+    this.items.shift();
   }
-
   peek() {
-    if (!this.isEmpty()) {
-      return this.items[0];
+    if (this.isEmpty()) {
+      return null;
     }
-    return null;
+    return this.items[0];
   }
 
   print() {
-    console.log(this.items);
+    console.log(toString(this.items));
   }
 }
 
